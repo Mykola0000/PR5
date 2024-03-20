@@ -1,1 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Практична робота No5 [ПІБ]</title>
+</head>
+<body>
+<h1>Практична робота No5 [ВАШЕ ПІБ]</h1>
+
+<script>
+// 1.2.4
+var car1 = new Object();
+car1.color = "red";
+car1.maxSpeed = 200;
+car1.driver = {
+    name: "John Smith",
+    category: "C",
+    personalLimitations: "No driving at night"
+};
+car1.tuning = true;
+car1.numberOfAccidents = 0;
+
+// 1.2.5
+var car2 = {
+    color: "blue",
+    maxSpeed: 180,
+    driver: {
+        name: "Jane Doe",
+        category: "B",
+        personalLimitations: null
+    },
+    tuning: false,
+    numberOfAccidents: 2
+};
+
+// 1.2.6
+car1.drive = function() {
+    console.log("I am not driving at night");
+};
+car1.drive(); // Test drive method for car1
+
+// 1.2.7
+car2.drive = function() {
+    console.log("I can drive anytime");
+};
+car2.drive(); // Test drive method for car2
+
+// 1.2.8
+function Truck(color, weight, avgSpeed, brand, model) {
+    this.color = color;
+    this.weight = weight;
+    this.avgSpeed = avgSpeed;
+    this.brand = brand;
+    this.model = model;
+}
+
+// 1.2.9
+Truck.prototype.AssignDriver = function(name, nightDriving, experience) {
+    this.driver = {
+        name: name,
+        nightDriving: nightDriving,
+        experience: experience
+    };
+};
+
+// 1.2.10
+Truck.prototype.trip = function() {
+    if (!this.driver) {
+        console.log("No driver assigned");
+    } else {
+        var message = "Driver " + this.driver.name;
+        if (this.driver.nightDriving) {
+            message += " drives at night";
+        } else {
+            message += " does not drive at night";
+        }
+        message += " and has " + this.driver.experience + " years of experience";
+        console.log(message);
+    }
+};
+
+// 1.2.11
+var truck1 = new Truck("green", 5000, 80, "Volvo", "XL");
+truck1.AssignDriver("Mike Johnson", true, 10);
+truck1.trip(); // Test trip method for truck1
+
+var truck2 = new Truck("yellow", 7000, 70, "Ford", "F150");
+truck2.AssignDriver("Anna Smith", false, 5);
+truck2.trip(); // Test trip method for truck2
+</script>
+</body>
+</html>
 
